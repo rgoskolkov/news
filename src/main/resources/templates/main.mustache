@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Hot news</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <form method="post">
+        <input type="text" name="newsHeader" placeholder="Введите заголовок">
+        <input type="text" name="newsBody" placeholder="Введите текст">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <button type="submit">Опубликовать</button>
+    </form>
+    <form method="post" action="/logout">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <input type="submit" value="logout">
+    </form>
+</div>
+    <div>Список новостей</div>
+    {{#news}}
+        <div>
+            <b>{{header}}</b>
+            <b>{{body}}</b>
+            <b>{{publishDate}}</b>
+        </div>
+    {{/news}}
+</body>
+</html>
